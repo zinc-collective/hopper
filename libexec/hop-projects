@@ -9,7 +9,7 @@ program
   .parse(process.argv);
 
 c = config.fromFile(expandHomeDir('~/.hop/config'));
-projects.config.workspaces = c.workspaces
+projects.config.workspaces = c.workspaces;
 
 var projectList = projects.all();
 for (p in projectList) {
