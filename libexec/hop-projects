@@ -12,6 +12,6 @@ c = config.fromFile(expandHomeDir('~/.hop/config'));
 projects.config.workspaces = c.workspaces;
 
 var projectList = projects.all();
-for (p in projectList) {
+for (var p in projectList) {
   console.log(projectList[p]);
 }
