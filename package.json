@@ -1,11 +1,18 @@
 {
-  "name"       : "hopperjs"
-, "version"    : "0.0.1"
-, "author"     : "Zee Spencer <hello+hopper@zeespencer.com> (http://zeespencer.com/)"
-, "license"    : "MIT"
-, "repository" : {
+  "name"        : "hopper-cli"
+, "description" : "Hopper is a modular, opinionated, convention-focused, developer process tool."
+, "keywords"    : ["build", "happiness", "developer-tool"]
+, "version"     : "0.0.1"
+, "author"      : "Zee Spencer <hello+hopper@zeespencer.com> (http://zeespencer.com/)"
+, "license"     : "MIT"
+
+, "bugs"        : {
+  "url" : "https://github.com/zincmade/hopper/issues"
+}
+
+, "repository"  : {
     "type" : "git"
-  , "url"  : "http://github.com/zincmade/hopper.git"
+  , "url"  : "http://github.com/zincmade/hopper"
   }
 
 , "scripts" : {
