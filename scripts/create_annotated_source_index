@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "# Annotated Source" > docs/annotated_source.md
+for i in $(find src -name '*.js')
+do
+  echo " * [$i](./${i%.*}.html)" >> docs/annotated_source.md
+done
+
+

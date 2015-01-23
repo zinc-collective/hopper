@@ -1,12 +1,39 @@
 #!/usr/bin/env node
+// Usage:
+//
+// ```sh
+// # Print help text and exit
+// $ hop
+// # Execute the projects command
+// $ hop projects
+// # Print help for a sub-command
+// $ hop help projects
+// # Print the version and exit
+// $ hop -V
+// ```
+// Sub-commands:
+//  * [hop projects](./hop-projects.html)
+//
+// Back to [readme](../README.html)
 
+
+
+// Pull in package data for use in the version option
 var package = require('../package.json');
+
+// Use commander to declare flags, options and sub-commands
 var program = require('commander');
+
+
 program
+  // Tell commander to use the version set in package.json for the -V flag
   .version(package.version)
+  // Tell commander to delegate `projects` subcommand to `hop-projects`
   .command('projects', 'lists all projects in your workspaces')
+  // Parse argv for the options/commands/etc and set them in the program object.
   .parse(process.argv);
 
+// If no sub-commands or options are passed, print the help text and quit.
 if (program.args.length === 0) {
   program.help();
 }
