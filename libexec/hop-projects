@@ -1,11 +1,12 @@
 #!/usr/bin/env node
+// Back to [hop](./hop.html) command or [home](./index.html)
+//
 // Usage:
 //
 // ```sh
 // # list all projects in your workspaces
 // $ hop projects
 // ```
-// Back to [hop](./hop.html) command or [readme](./README.html)
 
 
 // * [projects'  annotated-source](./projects.html)

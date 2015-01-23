@@ -1,4 +1,4 @@
-// Back [home](../) or [annotated source](../annotated_source.html)
+// Back [home](../index.md) or [annotated source](../annotated_source.md)
 
 // Configuration, by default, is stored in `~/.hop/config`
 

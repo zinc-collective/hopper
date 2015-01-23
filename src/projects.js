@@ -1,4 +1,4 @@
-// Back [home](../) or [annotated source](../annotated_source.html)
+// Back [home](../index.md) or [annotated source](../annotated_source.md)
 
 
 // [fs docs](http://nodejs.org/api/fs.html)

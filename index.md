@@ -20,10 +20,9 @@ Once you have [node](http://nodejs.org) installed, install Hopper with `npm
 install -g hopper-cli`.
 
 ## Further Reading
+* [Annotated source](./annotated_source.html)
+* [Contributing to the project](./CONTRIBUTING.html)
 
 #### Commands
  * [hop](./hop.html)
  * [hop projects](./hop-projects.html)
-
-#### [Annotated source](./annotated_source.html)
-

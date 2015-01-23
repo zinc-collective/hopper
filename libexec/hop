@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// Back [home](./index.html)
+//
 // Usage:
 //
 // ```sh
@@ -13,8 +15,6 @@
 // ```
 // Sub-commands:
 //  * [hop projects](./hop-projects.html)
-//
-// Back to [readme](../README.html)
 
 
 

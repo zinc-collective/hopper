@@ -4,7 +4,10 @@ test: lint
 lint:
 	./node_modules/jshint/bin/jshint src/* test/* libexec/*
 
-docs: man-pages api-docs usage-docs
+docs: man-pages api-docs usage-docs replace-md-with-html
+
+replace-md-with-html:
+	find . -type f -iname "*.html" -not -path "./node_modules/*" -exec sed -i ''  's/\.md/\.html/g' {} +
 
 usage-docs:
 	find . -name "*.md" -not -path "./node_modules/*" -not -iname "readme.md" | xargs ./node_modules/docco/bin/docco
