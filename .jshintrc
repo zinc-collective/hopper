@@ -1,0 +1,10 @@
+{
+  "node" : true
+, "eqeqeq": true
+, "newcap" : true
+, "undef" : true
+, "unused": true
+, "trailing": true
+, "browser" : false
+, "laxcomma" : true
+}

@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var program       = require('commander')
+,   expandHomeDir = require('expand-home-dir')
+,   projects      = require('../src/projects.js')
+,   config        = require('../src/config.js');
+
+program
+  .parse(process.argv);
+
+var c = config.fromFile(expandHomeDir('~/.hop/config'));
+projects.config.workspaces = c.workspaces;
+
+var projectList = projects.all();
+for (var p in projectList) {
+  console.log(projectList[p]);
+}

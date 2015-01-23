@@ -1,0 +1,37 @@
+{
+  "name"        : "hopper-cli"
+, "description" : "Hopper is a modular, opinionated, convention-focused, developer process tool."
+, "keywords"    : ["build", "happiness", "developer-tool"]
+, "version"     : "0.0.1"
+, "author"      : "Zee Spencer <hello+hopper@zeespencer.com> (http://zeespencer.com/)"
+, "license"     : "MIT"
+
+, "bugs"        : {
+  "url" : "https://github.com/zincmade/hopper/issues"
+}
+
+, "repository"  : {
+    "type" : "git"
+  , "url"  : "http://github.com/zincmade/hopper"
+  }
+
+, "scripts" : {
+    "lint" : "make lint"
+  , "test" : "make test"
+  }
+
+, "dependencies" : {
+    "commander" : "^2.6.0"
+  , "shelljs"   : "0.3.x"
+  , "expand-home-dir" : "0.0.2"
+  }
+
+, "devDependencies" : {
+    "jshint" : "^2.6.0"
+  }
+
+, "directories" : {
+    "bin" : "libexec"
+  , "lib" : "src"
+  }
+}
