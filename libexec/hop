@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-var fs   = require('fs')
-  , path = require('path');
 
 var package = require('../package.json');
 var program = require('commander');

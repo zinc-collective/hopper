@@ -1,4 +1,4 @@
-fs = require('fs');
+var fs = require('fs');
 
 function fromFile(configFilePath) {
   var contents = fs.readFileSync(configFilePath);

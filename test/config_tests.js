@@ -1,6 +1,6 @@
-c = require('../src/config');
-path   = require('path');
-assert = require('assert');
+var c      = require('../src/config')
+,   path   = require('path')
+,   assert = require('assert');
 
 
 var workspaceA = path.resolve('test/fixtures/workspace-a');

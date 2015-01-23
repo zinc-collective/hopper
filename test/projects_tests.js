@@ -1,6 +1,6 @@
-path     = require('path');
-assert   = require('assert');
-projects = require('../src/projects');
+var path     = require('path')
+,   assert   = require('assert')
+,   projects = require('../src/projects');
 
 var workspaces = {};
 var workspaceA = path.resolve('test/fixtures/workspace-a');
@@ -8,7 +8,7 @@ workspaces[workspaceA] = { depth: 1 };
 
 var workspaceB = path.resolve('test/fixtures/workspace-b');
 workspaces[workspaceB] = { depth: 2 };
-expectedProjects = [
+var expectedProjects = [
   'workspace-a/project-a'
 , 'workspace-a/project-b'
 , 'workspace-b/client-a'
