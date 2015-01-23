@@ -1,0 +1,30 @@
+{
+  "name"       : "hopperjs"
+, "version"    : "0.0.1"
+, "author"     : "Zee Spencer <hello+hopper@zeespencer.com> (http://zeespencer.com/)"
+, "license"    : "MIT"
+, "repository" : {
+    "type" : "git"
+  , "url"  : "http://github.com/zincmade/hopper.git"
+  }
+
+, "scripts" : {
+    "lint" : "make lint"
+  , "test" : "make test"
+  }
+
+, "dependencies" : {
+    "commander" : "^2.6.0"
+  , "shelljs"   : "0.3.x"
+  , "expand-home-dir" : "0.0.2"
+  }
+
+, "devDependencies" : {
+    "jshint" : "^2.6.0"
+  }
+
+, "directories" : {
+    "bin" : "libexec"
+  , "lib" : "src"
+  }
+}
