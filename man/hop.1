@@ -1,0 +1,64 @@
+.TH "HOP" "" "January 2015" "" ""
+.SH "NAME"
+\fBhop\fR \- shrink contribution overhead across languages, frameworks and teams
+.P
+More information in the online docs \fIhttp://zincmade\.github\.io/hopper\fR\|\.
+.SH Synopsis
+.P
+.RS 2
+.nf
+hop [\-hV] <command>
+.fi
+.RE
+.SH Description
+.P
+Hopper is a modular, opinionated, convention\-focused tool for your development
+process\.
+.P
+Hopper streamlines switching between and contributing to a projects regardless
+of language, team, testing library, architecture, deployment strategy, etc\.
+.P
+If it's a hopper\-friendly project you can "hop" right in and get to work\.
+.SH Options
+.P
+\-V
+  Prints version information for hopper and exits
+.P
+\-h
+  Prints the synopsis and a list of commonly used commands
+.SH Hop Commands
+.RS 0
+.IP \(bu 2
+\fBhop\-projects\fR \- List all projects in workspaces\.
+
+.RE
+.TH "HOP\-PROJECTS" "" "January 2015" "" ""
+.SH "NAME"
+\fBhop-projects\fR \- list all projects in your workspaces
+.SH Synopsis
+.P
+.RS 2
+.nf
+hop projects
+.fi
+.RE
+.SH Description
+.P
+Lists all projects in your workspaces\. Useful when combined with
+selecta \fIhttps://github\.com/garybernhardt/selecta\fR to fuzzy\-find a project
+quickly\.
+.P
+Example:
+.P
+.RS 2
+.nf
+$ pwd
+/Users/zee
+$ cd $(hop projects | selecta)
+> znmaho
+/Users/zee/Projects/zincmade/hopper
+$ pwd
+/Users/zee/Projects/zincmade/hopper
+.fi
+.RE
+

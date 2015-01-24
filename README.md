@@ -1,30 +1,50 @@
-# Hopper
+# hop -- shrink contribution overhead across languages, frameworks and teams
+More information in the [online docs](http://zincmade.github.io/hopper).
+
+## Synopsis
+```
+hop [-hV] <command>
+```
+
+## Description
 Hopper is a modular, opinionated, convention-focused tool for your development
 process.
 
-Hopper's primary goal is to streamline switching between and contributing to a
-variety of projects; regardless of language, testing library, architecture,
-deployment strategy, etc. If it's a hopper-friendly project you should be able
-to "hop" right in and get to work.
+Hopper streamlines switching between and contributing to a projects regardless
+of language, team, testing library, architecture, deployment strategy, etc.
 
-To accomplish this, hopper focuses on common interfaces for project tasks, such as:
-  * Initializing a new project.
-  * Navigating to the projects on your file system.
-  * Running a project
-  * Testing a project
-  * Generating documentation
-  * Building a package from a project
-  * Pushing a packaged project to an artifact repository
-  * Bumping a version number while following semver
-  * Releasing a new version of a project
+If it's a hopper-friendly project you can "hop" right in and get to work.
 
-## Installation
-Once you have [node](http://nodejs.org) installed, installing Hopper is as easy
-as `npm install -g hopper-cli`.
+## Options
+-V
+  Prints version information for hopper and exits
 
-## Usage
+-h
+  Prints the synopsis and a list of commonly used commands
 
-Run `hop -h` to see a list of commands. `hop help <command>` will print out help
-text for the given command.
+## Hop Commands
+* **hop-projects** - List all projects in workspaces.
 
-There will be man pages soon once I figure out how to make those work.
+# hop-projects -- list all projects in your workspaces
+
+## Synopsis
+```
+hop projects
+```
+
+## Description
+Lists all projects in your workspaces. Useful when combined with
+[selecta](https://github.com/garybernhardt/selecta) to fuzzy-find a project
+quickly.
+
+Example:
+```
+$ pwd
+/Users/zee
+$ cd $(hop projects | selecta)
+> znmaho
+/Users/zee/Projects/zincmade/hopper
+$ pwd
+/Users/zee/Projects/zincmade/hopper
+```
+

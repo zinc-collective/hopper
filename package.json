@@ -27,11 +27,14 @@
   }
 
 , "devDependencies" : {
-    "jshint" : "^2.6.0"
+    "jshint"     : "^2.6.0"
+  , "docco"       : "0.6.x"
+  , "marked-man" : "0.1.x"
   }
 
 , "directories" : {
     "bin" : "libexec"
   , "lib" : "src"
+  , "man" : "man"
   }
 }

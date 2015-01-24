@@ -1,17 +1,32 @@
 #!/usr/bin/env node
+// Back to [hop](./hop.html) command or [home](./index.html)
+//
+// Usage:
+//
+// ```sh
+// # list all projects in your workspaces
+// $ hop projects
+// ```
 
+
+// * [projects'  annotated-source](./projects.html)
+// * [config's annotated-source](./config.html)
 var program       = require('commander')
-,   expandHomeDir = require('expand-home-dir')
 ,   projects      = require('../src/projects.js')
 ,   config        = require('../src/config.js');
 
 program
   .parse(process.argv);
 
-var c = config.fromFile(expandHomeDir('~/.hop/config'));
+
+// Load configuration from standard config file.
+var c = config.fromFile(config.DEFAULT_CONFIG_FILE);
+
+// Tell the projects module what workspaces to look through.
 projects.config.workspaces = c.workspaces;
 
-var projectList = projects.all();
-for (var p in projectList) {
-  console.log(projectList[p]);
-}
+// Retrieve projects for the configured workspaces
+// and print them to the screen on individual lines
+projects.all().forEach(function(project) {
+  console.log(project);
+});
