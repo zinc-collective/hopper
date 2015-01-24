@@ -22,16 +22,18 @@ If it's a hopper-friendly project you can "hop" right in and get to work.
 -h
   Prints the synopsis and a list of commonly used commands
 
+## Hop Commands
+* **hop-projects** - List all projects in workspaces.
+
 # hop-projects -- list all projects in your workspaces
 
 ## Synopsis
-
 ```
 hop projects
 ```
 
 ## Description
-Lists all the projects in your workspaces. Useful when combined with
+Lists all projects in your workspaces. Useful when combined with
 [selecta](https://github.com/garybernhardt/selecta) to fuzzy-find a project
 quickly.
 
