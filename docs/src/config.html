@@ -66,7 +66,8 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>)
+<span class="hljs-keyword">var</span> fs            = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>)
+,   path          = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>)
 ,   expandHomeDir = <span class="hljs-built_in">require</span>(<span class="hljs-string">'expand-home-dir'</span>);
 
 <span class="hljs-keyword">var</span> DEFAULT_CONFIG_FILE = expandHomeDir(<span class="hljs-string">'~/.hop/config'</span>);</pre></div></div>
@@ -85,6 +86,9 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fromFile</span><span class="hljs-params">(configFilePath)</span> </span>{
+  <span class="hljs-keyword">if</span> (!fs.existsSync(configFilePath)) {
+    <span class="hljs-keyword">return</span> {};
+  }
   <span class="hljs-keyword">var</span> contents = fs.readFileSync(configFilePath);
   <span class="hljs-keyword">return</span> <span class="hljs-built_in">JSON</span>.parse(contents);
 }</pre></div></div>
@@ -103,6 +107,9 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toFile</span><span class="hljs-params">(configFilePath, config)</span> </span>{
+  <span class="hljs-keyword">if</span> (!fs.existsSync(configFilePath)) {
+    fs.mkdirSync(path.dirname(configFilePath));
+  }
   fs.writeFileSync(configFilePath, <span class="hljs-built_in">JSON</span>.stringify(config));
 }</pre></div></div>
             
