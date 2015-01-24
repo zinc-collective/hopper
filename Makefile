@@ -23,7 +23,7 @@ man-pages:
 publish-docs: docs
 	git subtree push --prefix docs origin gh-pages
 
-publish:
+publish: publish-docs
 	npm publish
 
 unpublish:
