@@ -1,4 +1,6 @@
 # Hopper
+* Next version: [0.1.0](https://github.com/zincmade/hopper/milestones/0.1.0)
+
 Hopper is a modular, opinionated, convention-focused tool for your development
 process.
 
@@ -24,8 +26,9 @@ Once you have [node](http://nodejs.org) installed, install Hopper with `npm
 install -g hopper-cli`.
 
 ## Further Reading
-* [Annotated source](./annotated_source.html)
-* [Contributing to the project](./CONTRIBUTING.html)
+* [Annotated source](./annotated_source.md)
+* [Contributing to the project](./CONTRIBUTING.md)
+* [Changelog](./CHANGELOG.md)
 
 #### Commands
  * [hop](./hop.html)

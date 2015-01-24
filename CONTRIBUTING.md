@@ -8,9 +8,9 @@ to contribute to hopper development, there's a few things you should know:
 * We use [Github Flow](https://guides.github.com/introduction/flow/index.html)
   for contributions.
 * We have a [Work in Progress board](https://waffle.io/zincmade/hopper).
-* We would love if you could report bugs, call out confusing documentation,
-  and/or request features via our [issue
-  tracker](./https://github.com/zincmade/hopper/issues).
+* We love bug reports, documentation improvements,
+  and/or request features being added to our [issue
+  tracker](https://github.com/zincmade/hopper/issues).
 
 ## Creating a Development Environment for Hopper
 1. Ensure you've installed [node](http://nodejs.org).
