@@ -26,4 +26,7 @@ publish-docs:
 publish:
 	npm publish
 
+unpublish:
+	npm unpublish --force
+
 build: test docs
