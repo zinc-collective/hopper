@@ -20,7 +20,13 @@ api-docs:
 man-pages:
 	./node_modules/marked-man/bin/marked-man README.md > man/hop.1
 
-release-docs:
+publish-docs: docs
 	git subtree push --prefix docs origin gh-pages
+
+publish: publish-docs
+	npm publish
+
+unpublish:
+	npm unpublish --force
 
 build: test docs
