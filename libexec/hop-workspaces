@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+// Back to [hop](./hop.html) command or [home](./index.html)
+//
+// Usage:
+//
+// ```sh
+// # Print help text and exit
+// $ hop workspaces
+// # Add current working directory as a workspace.
+// $ hop workspaces add $(pwd)
+// # Add the current working directory and allow it to contain sub-workspaces
+// $ hop workspaces add --depth=2 $(pwd)
+// ```
+
+// * [workspaces'  annotated-source](./workspaces.html)
+// * [config's annotated-source](./config.html)
+var program = require('commander');
+
+
+program
+  .command('add <path>', 'Adds the given path to your set of workspaces')
+  .command('list'      , 'Lists all the workspaces in your config')
+  .parse(process.argv);

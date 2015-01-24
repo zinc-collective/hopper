@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+// Back to [hop](./hop.html) command or [home](./index.html)
+//
+// Usage:
+//
+// ```sh
+// # Add current working directory to set of workspaces
+// $ hop workspaces add $(pwd)
+// # Add the current working directory and allow it to contain sub-workspaces
+// $ hop workspaces add --depth=2 $(pwd)
+// ```
+var program    = require('commander')
+,   path       = require('path')
+,   config     = require('../src/config')
+,   expandHome = require('expand-home-dir');
+
+program
+  .usage('<path,...>')
+  .description("Adds a path to the hopper's set of workspaces")
+  .option('-d, --depth [n]', 'Depth to treat as workspaces. Defaults to 1',  parseInt)
+  .parse(process.argv);
+
+// If no workspace paths are provided, print the help text and quit.
+if (program.args.length === 0) {
+  program.help();
+}
+
+program.depth = program.depth || 1;
+// Load configuration from standard config file.
+var c = config.fromFile();
+
+// Append each argument as a path
+program.args.forEach(function(workspacePath) {
+  var expandedPath = path.resolve(expandHome(workspacePath));
+  c.workspaces[expandedPath] = { depth: program.depth };
+});
+
+config.toFile(c);

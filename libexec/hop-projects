@@ -11,9 +11,9 @@
 
 // * [projects'  annotated-source](./projects.html)
 // * [config's annotated-source](./config.html)
-var program       = require('commander')
-,   projects      = require('../src/projects.js')
-,   config        = require('../src/config.js');
+var program  = require('commander')
+,   projects = require('../src/projects.js')
+,   config   = require('../src/config.js');
 
 program
   .parse(process.argv);
