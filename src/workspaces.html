@@ -72,11 +72,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Augment a <code>workspaces</code> object with new <code>paths</code>
-workspaces: a workspace object
-paths: an array of paths to add to the workspaces
-depth: the depth parameter for each supplied workspace.
-errHandler: A handler which is invoked if a directory does not exist</p>
+              <p>Merges a set of paths on the filesystem into workspaces. Calls errorHandler
+with paths that don’t exist.</p>
 
             </div>
             
@@ -91,7 +88,24 @@ errHandler: A handler which is invoked if a directory does not exist</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>Install a default handler which simply warns on the console</p>
+              <p>Poor man’s type check on arguments</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  assert(<span class="hljs-keyword">typeof</span> workspaces === <span class="hljs-string">"object"</span>, <span class="hljs-string">"workspaces must be an object"</span>);
+  assert(paths <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>, <span class="hljs-string">"paths must be an array"</span>);
+  assert(<span class="hljs-keyword">typeof</span> depth === <span class="hljs-string">"number"</span>, <span class="hljs-string">"depth must be an integer"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>If no error handler provided, a log each missing path as a warning.</p>
 
             </div>
             
@@ -104,35 +118,18 @@ errHandler: A handler which is invoked if a directory does not exist</p>
         </li>
         
         
-        <li id="section-4">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
-              </div>
-              <p>Poor man’s type check</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  assert(<span class="hljs-keyword">typeof</span> workspaces === <span class="hljs-string">"object"</span>, <span class="hljs-string">"workspaces must be an object"</span>);
-  assert(paths <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>, <span class="hljs-string">"paths must be an array"</span>);
-  assert(<span class="hljs-keyword">typeof</span> depth === <span class="hljs-string">"number"</span>, <span class="hljs-string">"depth must be an integer"</span>);</pre></div></div>
-            
-        </li>
-        
-        
         <li id="section-5">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>Append each argument as a path</p>
+              <p>Add each path to workspaces if it exists, otherwise invoke errorHandler
+with the path.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  paths.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(workspacePath)</span> </span>{
-    <span class="hljs-keyword">var</span> expandedPath = path.resolve(expandHome(workspacePath));</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  paths.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(workspacePath)</span> </span>{</pre></div></div>
             
         </li>
         
@@ -143,13 +140,20 @@ errHandler: A handler which is invoked if a directory does not exist</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Check that the path exists</p>
+              <p>Get the absolute path on the filesystem.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> (fs.existsSync(expandedPath)) {
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> expandedPath = path.resolve(expandHome(workspacePath));
+    <span class="hljs-keyword">if</span> (fs.existsSync(expandedPath)) {
       workspaces[expandedPath] = { depth: depth };
-    } <span class="hljs-keyword">else</span> {</pre></div></div>
+    } <span class="hljs-keyword">else</span> {
+      errHandler(expandedPath);
+    }
+  });
+
+  <span class="hljs-keyword">return</span> workspaces;
+}</pre></div></div>
             
         </li>
         
@@ -160,18 +164,11 @@ errHandler: A handler which is invoked if a directory does not exist</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>Invoke an error handler if the path is not found.</p>
+              <h3 id="public-api">Public API</h3>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      errHandler(expandedPath);
-    }
-  });
-
-  <span class="hljs-keyword">return</span> workspaces;
-}
-
-<span class="hljs-built_in">module</span>.exports = {
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">module</span>.exports = {
   addPaths: addPaths
 };</pre></div></div>
             
