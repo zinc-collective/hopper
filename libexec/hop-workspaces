@@ -12,8 +12,8 @@
 // $ hop workspaces add --depth=2 $(pwd)
 // ```
 
-// * [workspaces'  annotated-source](./workspaces.html)
-// * [config's annotated-source](./config.html)
+// * [workspaces'  annotated-source](./src/workspaces.html)
+// * [config's annotated-source](./src/config.html)
 var program = require('commander');
 
 

@@ -1,3 +1,5 @@
+// Back [home](../index.md) or [annotated source](../annotated_source.md)
+
 var assert = require("assert");
 var expandHome = require('expand-home-dir');
 var path = require('path');
