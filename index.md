@@ -13,13 +13,13 @@ Hopper creates a consistent, codified interface between projects to help people
 get up-to-speed and contributing fast by decreasing cognitive overhead in:
   * Initializing a new project.
   * Navigating to projects on your file system.
-  * Testing a project
-  * Running a project
-  * Generating documentation
-  * Building a package from a project
-  * Pushing a packaged project to an artifact repository
-  * Bumping a version number while following semver
-  * Releasing a new version of a project
+  * Testing a project.
+  * Running a project.
+  * Generating documentation.
+  * Building a package from a project.
+  * Pushing a packaged project to an artifact repository.
+  * Bumping a version number while following semver.
+  * Releasing a new version of a project.
 
 ## Installation
 Once you have [node](http://nodejs.org) installed, install Hopper with `npm
@@ -33,3 +33,4 @@ install -g hopper-cli`.
 #### Commands
  * [hop](./hop.html)
  * [hop projects](./hop-projects.html)
+ * [hop workspaces](./hop-workspaces.html)

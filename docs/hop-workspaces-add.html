@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>hop-projects</title>
+  <title>hop-workspaces-add</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -46,7 +46,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>hop-projects</h1>
+                  <h1>hop-workspaces-add</h1>
               </div>
           </li>
         
@@ -74,11 +74,24 @@
               </div>
               <p>Back to <a href="./hop.html">hop</a> command or <a href="./index.html">home</a></p>
 <p>Usage:</p>
-<pre><code class="lang-sh"><span class="hljs-comment"># list all projects in your workspaces</span>
-$ hop projects
+<pre><code class="lang-sh"><span class="hljs-comment"># Add current working directory to set of workspaces</span>
+$ hop workspaces add $(<span class="hljs-built_in">pwd</span>)
+<span class="hljs-comment"># Add the current working directory and allow it to contain sub-workspaces</span>
+$ hop workspaces add --depth=<span class="hljs-number">2</span> $(<span class="hljs-built_in">pwd</span>)
 </code></pre>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">var</span> program    = <span class="hljs-built_in">require</span>(<span class="hljs-string">'commander'</span>)
+,   config     = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../src/config'</span>)
+,   workspaces = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../src/workspaces'</span>);
+
+program
+  .usage(<span class="hljs-string">'&lt;path,...&gt;'</span>)
+  .description(<span class="hljs-string">"Adds a path to the hopper's set of workspaces"</span>)
+  .option(<span class="hljs-string">'-d, --depth [n]'</span>, <span class="hljs-string">'Depth to treat as workspaces. Defaults to 1'</span>,  <span class="hljs-built_in">parseInt</span>)
+  .parse(process.argv);</pre></div></div>
             
         </li>
         
@@ -89,19 +102,15 @@ $ hop projects
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <ul>
-<li><a href="./projects.html">projects’  annotated-source</a></li>
-<li><a href="./config.html">config’s annotated-source</a></li>
-</ul>
+              <p>If no workspace paths are provided, print the help text and quit.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> program  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'commander'</span>)
-,   projects = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../src/projects.js'</span>)
-,   config   = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../src/config.js'</span>);
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">if</span> (program.args.length === <span class="hljs-number">0</span>) {
+  program.help();
+}
 
-program
-  .parse(process.argv);</pre></div></div>
+program.depth = program.depth || <span class="hljs-number">1</span>;</pre></div></div>
             
         </li>
         
@@ -116,40 +125,11 @@ program
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> c = config.fromFile(config.DEFAULT_CONFIG_FILE);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-5">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
-              </div>
-              <p>Tell the projects module what workspaces to look through.</p>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> c = config.fromFile();
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>projects.config.workspaces = c.workspaces;</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-6">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
-              </div>
-              <p>Retrieve projects for the configured workspaces
-and print them to the screen on individual lines</p>
+c.workspaces = workspaces.addPaths(c.workspaces || {}, program.args, program.depth);
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>projects.all().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(project)</span> </span>{
-  <span class="hljs-built_in">console</span>.log(project);
-});</pre></div></div>
+config.toFile(c);</pre></div></div>
             
         </li>
         

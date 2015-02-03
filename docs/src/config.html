@@ -28,6 +28,11 @@
                 projects.js
               </a>
             
+              
+              <a class="source" href="workspaces.html">
+                workspaces.js
+              </a>
+            
           </div>
         </li>
       </ul>
@@ -86,10 +91,14 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fromFile</span><span class="hljs-params">(configFilePath)</span> </span>{
+  configFilePath = configFilePath || DEFAULT_CONFIG_FILE;
+
   <span class="hljs-keyword">if</span> (!fs.existsSync(configFilePath)) {
     <span class="hljs-keyword">return</span> {};
   }
+
   <span class="hljs-keyword">var</span> contents = fs.readFileSync(configFilePath);
+
   <span class="hljs-keyword">return</span> <span class="hljs-built_in">JSON</span>.parse(contents);
 }</pre></div></div>
             
@@ -106,8 +115,9 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toFile</span><span class="hljs-params">(configFilePath, config)</span> </span>{
-  <span class="hljs-keyword">if</span> (!fs.existsSync(configFilePath)) {
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toFile</span><span class="hljs-params">(config, configFilePath)</span> </span>{
+  configFilePath = configFilePath || DEFAULT_CONFIG_FILE;
+  <span class="hljs-keyword">if</span> (!fs.existsSync(path.dirname(configFilePath))) {
     fs.mkdirSync(path.dirname(configFilePath));
   }
   fs.writeFileSync(configFilePath, <span class="hljs-built_in">JSON</span>.stringify(config));

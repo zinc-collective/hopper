@@ -15,6 +15,7 @@
 // ```
 // Sub-commands:
 //  * [hop projects](./hop-projects.html)
+//  * [hop workspaces](./hop-workspaces.html)
 
 
 
@@ -30,6 +31,7 @@ program
   .version(package.version)
   // Tell commander to delegate `projects` subcommand to `hop-projects`
   .command('projects', 'lists all projects in your workspaces')
+  .command('workspaces', 'workspace related commands')
   // Parse argv for the options/commands/etc and set them in the program object.
   .parse(process.argv);
 
