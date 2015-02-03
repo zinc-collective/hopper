@@ -8,13 +8,9 @@ var fs = require('fs');
 // Augment a `workspaces` object with new `paths`
 // workspaces: a workspace object
 // paths: an array of paths to add to the workspaces
-// depth: the depth parameter for each supplied workspace. Default: 1
+// depth: the depth parameter for each supplied workspace.
 // errHandler: A handler which is invoked if a directory does not exist
 function addPaths(workspaces, paths, depth, errHandler) {
-  if (depth === undefined) {
-    depth = 1;
-  }
-
   // Install a default handler which simply warns on the console
   if (errHandler === undefined) {
     errHandler = function (path) {
@@ -25,7 +21,7 @@ function addPaths(workspaces, paths, depth, errHandler) {
   // Poor man's type check
   assert(typeof workspaces === "object", "workspaces must be an object");
   assert(paths instanceof Array, "paths must be an array");
-  assert(typeof depth === "number", "depth must be an integer or undefined");
+  assert(typeof depth === "number", "depth must be an integer");
 
   // Append each argument as a path
   paths.forEach(function(workspacePath) {
