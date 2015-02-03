@@ -82,10 +82,10 @@ $ hop workspaces add --depth=<span class="hljs-number">2</span> $(<span class="h
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> program    = <span class="hljs-built_in">require</span>(<span class="hljs-string">'commander'</span>)
-,   path       = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>)
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">var</span> program    = <span class="hljs-built_in">require</span>(<span class="hljs-string">'commander'</span>)
 ,   config     = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../src/config'</span>)
-,   expandHome = <span class="hljs-built_in">require</span>(<span class="hljs-string">'expand-home-dir'</span>);
+,   workspaces = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../src/workspaces'</span>);
 
 program
   .usage(<span class="hljs-string">'&lt;path,...&gt;'</span>)
@@ -125,25 +125,9 @@ program.depth = program.depth || <span class="hljs-number">1</span>;</pre></div>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> c = config.fromFile();</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-5">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
-              </div>
-              <p>Append each argument as a path</p>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> c = config.fromFile();
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>program.args.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(workspacePath)</span> </span>{
-  <span class="hljs-keyword">var</span> expandedPath = path.resolve(expandHome(workspacePath));
-  c.workspaces[expandedPath] = { depth: program.depth };
-});
+c.workspaces = workspaces.addPaths(c.workspaces || {}, program.args, program.depth);
 
 config.toFile(c);</pre></div></div>
             
