@@ -9,10 +9,10 @@
 // # Add the current working directory and allow it to contain sub-workspaces
 // $ hop workspaces add --depth=2 $(pwd)
 // ```
+
 var program    = require('commander')
-,   path       = require('path')
 ,   config     = require('../src/config')
-,   expandHome = require('expand-home-dir');
+,   workspaces = require('../src/workspaces');
 
 program
   .usage('<path,...>')
@@ -29,10 +29,6 @@ program.depth = program.depth || 1;
 // Load configuration from standard config file.
 var c = config.fromFile();
 
-// Append each argument as a path
-program.args.forEach(function(workspacePath) {
-  var expandedPath = path.resolve(expandHome(workspacePath));
-  c.workspaces[expandedPath] = { depth: program.depth };
-});
+c.workspaces = workspaces.addPaths(c.workspaces || {}, program.args, program.depth);
 
 config.toFile(c);

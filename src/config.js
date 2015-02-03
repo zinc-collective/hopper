@@ -24,7 +24,7 @@ function fromFile(configFilePath) {
 // Stringifies POJO to JSON and overwrites the config file
 function toFile(config, configFilePath) {
   configFilePath = configFilePath || DEFAULT_CONFIG_FILE;
-  if (!fs.existsSync(configFilePath)) {
+  if (!fs.existsSync(path.dirname(configFilePath))) {
     fs.mkdirSync(path.dirname(configFilePath));
   }
   fs.writeFileSync(configFilePath, JSON.stringify(config));
