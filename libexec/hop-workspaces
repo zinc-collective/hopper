@@ -6,14 +6,9 @@
 // ```sh
 // # Print help text and exit
 // $ hop workspaces
-// # Add current working directory as a workspace.
-// $ hop workspaces add $(pwd)
-// # Add the current working directory and allow it to contain sub-workspaces
-// $ hop workspaces add --depth=2 $(pwd)
 // ```
-
-// * [workspaces'  annotated-source](./src/workspaces.html)
-// * [config's annotated-source](./src/config.html)
+// ## Sub-commands:
+// * [hop workspaces add](./hop-workspaces-add.html)
 var program = require('commander');
 
 
@@ -21,6 +16,7 @@ program
   .command('add <path>', 'Adds the given path to your set of workspaces')
   .parse(process.argv);
 
-if (program.args.length === 0) {
+// If no sub-commands are provided, print the help text and quit.
+if (!program.runningCommand) {
   program.help();
 }

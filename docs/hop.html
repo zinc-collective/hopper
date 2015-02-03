@@ -179,11 +179,11 @@ program</pre></div></div>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>If no sub-commands or options are passed, print the help text and quit.</p>
+              <p>If no sub-commands are provided, print the help text and quit.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">if</span> (program.args.length === <span class="hljs-number">0</span>) {
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">if</span> (!program.runningCommand) {
   program.help();
 }</pre></div></div>
             

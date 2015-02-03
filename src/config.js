@@ -1,11 +1,10 @@
 // Back [home](../index.md) or [annotated source](../annotated_source.md)
 
-// Configuration, by default, is stored in `~/.hop/config`
-
 var fs            = require('fs')
 ,   path          = require('path')
 ,   expandHomeDir = require('expand-home-dir');
 
+// Configuration, by default, is stored in `~/.hop/config`
 var DEFAULT_CONFIG_FILE = expandHomeDir('~/.hop/config');
 
 // Loads configuration from path, parses JSON and returns POJO

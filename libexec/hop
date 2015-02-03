@@ -35,7 +35,7 @@ program
   // Parse argv for the options/commands/etc and set them in the program object.
   .parse(process.argv);
 
-// If no sub-commands or options are passed, print the help text and quit.
-if (program.args.length === 0) {
+// If no sub-commands are provided, print the help text and quit.
+if (!program.runningCommand) {
   program.help();
 }
