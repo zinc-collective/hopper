@@ -75,15 +75,12 @@
               <p>Augment a <code>workspaces</code> object with new <code>paths</code>
 workspaces: a workspace object
 paths: an array of paths to add to the workspaces
-depth: the depth parameter for each supplied workspace. Default: 1
+depth: the depth parameter for each supplied workspace.
 errHandler: A handler which is invoked if a directory does not exist</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addPaths</span><span class="hljs-params">(workspaces, paths, depth, errHandler)</span> </span>{
-  <span class="hljs-keyword">if</span> (depth === <span class="hljs-literal">undefined</span>) {
-    depth = <span class="hljs-number">1</span>;
-  }</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addPaths</span><span class="hljs-params">(workspaces, paths, depth, errHandler)</span> </span>{</pre></div></div>
             
         </li>
         
@@ -119,7 +116,7 @@ errHandler: A handler which is invoked if a directory does not exist</p>
             
             <div class="content"><div class='highlight'><pre>  assert(<span class="hljs-keyword">typeof</span> workspaces === <span class="hljs-string">"object"</span>, <span class="hljs-string">"workspaces must be an object"</span>);
   assert(paths <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>, <span class="hljs-string">"paths must be an array"</span>);
-  assert(<span class="hljs-keyword">typeof</span> depth === <span class="hljs-string">"number"</span>, <span class="hljs-string">"depth must be an integer or undefined"</span>);</pre></div></div>
+  assert(<span class="hljs-keyword">typeof</span> depth === <span class="hljs-string">"number"</span>, <span class="hljs-string">"depth must be an integer"</span>);</pre></div></div>
             
         </li>
         
