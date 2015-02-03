@@ -19,5 +19,4 @@ var program = require('commander');
 
 program
   .command('add <path>', 'Adds the given path to your set of workspaces')
-  .command('list'      , 'Lists all the workspaces in your config')
   .parse(process.argv);
