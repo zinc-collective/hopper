@@ -20,3 +20,7 @@ var program = require('commander');
 program
   .command('add <path>', 'Adds the given path to your set of workspaces')
   .parse(process.argv);
+
+if (program.args.length === 0) {
+  program.help();
+}
