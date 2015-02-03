@@ -76,26 +76,10 @@
 <p>Usage:</p>
 <pre><code class="lang-sh"><span class="hljs-comment"># Print help text and exit</span>
 $ hop workspaces
-<span class="hljs-comment"># Add current working directory as a workspace.</span>
-$ hop workspaces add $(<span class="hljs-built_in">pwd</span>)
-<span class="hljs-comment"># Add the current working directory and allow it to contain sub-workspaces</span>
-$ hop workspaces add --depth=<span class="hljs-number">2</span> $(<span class="hljs-built_in">pwd</span>)
 </code></pre>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-3">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              <ul>
-<li><a href="./src/workspaces.html">workspaces’  annotated-source</a></li>
-<li><a href="./src/config.html">config’s annotated-source</a></li>
+<h2 id="sub-commands-">Sub-commands:</h2>
+<ul>
+<li><a href="./hop-workspaces-add.html">hop workspaces add</a></li>
 </ul>
 
             </div>
@@ -106,6 +90,23 @@ $ hop workspaces add --depth=<span class="hljs-number">2</span> $(<span class="h
 program
   .command(<span class="hljs-string">'add &lt;path&gt;'</span>, <span class="hljs-string">'Adds the given path to your set of workspaces'</span>)
   .parse(process.argv);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>If no sub-commands are provided, print the help text and quit.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">if</span> (!program.runningCommand) {
+  program.help();
+}</pre></div></div>
             
         </li>
         

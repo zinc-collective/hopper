@@ -10,6 +10,9 @@
 // $ hop workspaces add --depth=2 $(pwd)
 // ```
 
+// * [workspaces'  annotated-source](./src/workspaces.html)
+// * [config's annotated-source](./src/config.html)
+
 var program    = require('commander')
 ,   config     = require('../src/config')
 ,   workspaces = require('../src/workspaces');
@@ -25,10 +28,17 @@ if (program.args.length === 0) {
   program.help();
 }
 
+// Default depth option to 1
 program.depth = program.depth || 1;
+
 // Load configuration from standard config file.
 var c = config.fromFile();
 
-c.workspaces = workspaces.addPaths(c.workspaces || {}, program.args, program.depth);
+// Default to an empty dictionary if no workspaces configured already.
+c.workspaces = c.workspaces || {};
 
+// Set configured workspaces to workspaces + the passed in paths
+c.workspaces = workspaces.addPaths(c.workspaces, program.args, program.depth);
+
+// Save the configuration
 config.toFile(c);
