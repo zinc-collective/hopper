@@ -1,5 +1,7 @@
 # Hopper
-* Next version: [0.1.0](https://github.com/zincmade/hopper/issues?q=milestone%3A0.1.0+)
+* [Project Backlog](https://waffle.io/zincmade/hopper)
+* Current version: [0.1.1](https://github.com/zincmade/hopper/issues?q=milestone%3A0.1.0+)
+* Next version: [0.2.0](https://github.com/zincmade/hopper/issues?q=milestone%3A0.2.0+)
 
 Hopper is a modular, opinionated, convention-focused tool for your development
 process.
