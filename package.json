@@ -2,7 +2,7 @@
   "name"        : "hopper-cli"
 , "description" : "Hopper is a modular, opinionated, convention-focused, developer process tool."
 , "keywords"    : ["build", "happiness", "developer-tool"]
-, "version"     : "0.1.0-pre"
+, "version"     : "0.1.1"
 , "author"      : "Zee Spencer <hello+hopper@zeespencer.com> (http://zeespencer.com/)"
 , "license"     : "MIT"
 
