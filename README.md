@@ -24,6 +24,7 @@ If it's a hopper-friendly project you can "hop" right in and get to work.
 
 ## Hop Commands
 * **hop-projects** - List all projects in workspaces.
+* **hop-workspaces add** -  Adds a directory as a workspace.
 
 # hop-projects -- list all projects in your workspaces
 
@@ -48,3 +49,31 @@ $ pwd
 /Users/zee/Projects/zincmade/hopper
 ```
 
+# hop-workspaces-add -- Adds a directory to your workspaces
+
+## Synopsis
+```
+hop [--depth=1] workspaces add
+```
+
+## Description
+Adds a directory to the list of workspaces hopper is aware of. You may provide a
+"depth" which tells hopper to treat sub-directories as workspaces as well.
+
+Example:
+```
+  $ hop workspaces add --depth 2 /home/zee/Clients
+  # Adds the /home/zee/Clients directory as a workspace that contains other
+  # workspaces
+  $ hop projects
+  /home/zee/Clients/Foo
+  /home/zee/Clients/Foo/project-a
+  /home/zee/Clients/Foo/project-b
+  /home/zee/Clients/Bar
+  /home/zee/Clients/Bar/project-a
+```
+
+## Options
+--depth=1
+  How deep to go when treating the directory as a workspace. Useful when
+  organizing projects into sub-folders.
